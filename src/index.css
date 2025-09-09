@@ -11,6 +11,9 @@
     
     --card: 229 30% 15%;               /* deep panel */
     --card-foreground: 228 100% 94%;
+
+    --popover: 229 30% 15%;
+    --popover-foreground: 228 100% 94%;
     
     --panel: 229 39% 14%;              /* deeper indigo panels */
     --panel-alt: 229 45% 18%;          /* alternative panel */
@@ -62,6 +65,9 @@
     
     --card: 0 0% 100%;
     --card-foreground: 221 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
     
     --panel: 220 14% 96%;
     --panel-alt: 220 14% 94%;
