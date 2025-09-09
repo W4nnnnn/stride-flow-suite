@@ -60,12 +60,12 @@ const TaskToolbar: React.FC<TaskToolbarProps> = ({
           className="lg:col-span-2"
         />
         
-        <Select value={filters.strategy} onValueChange={(value) => onFiltersChange({ strategy: value })}>
+        <Select value={filters.strategy || "all"} onValueChange={(value) => onFiltersChange({ strategy: value === "all" ? "" : value })}>
           <SelectTrigger>
             <SelectValue placeholder="Semua strategi" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">Semua strategi</SelectItem>
+            <SelectItem value="all">Semua strategi</SelectItem>
             {STRATEGIES.map(strategy => (
               <SelectItem key={strategy} value={strategy}>
                 {strategy}
@@ -74,12 +74,12 @@ const TaskToolbar: React.FC<TaskToolbarProps> = ({
           </SelectContent>
         </Select>
         
-        <Select value={filters.owner} onValueChange={(value) => onFiltersChange({ owner: value })}>
+        <Select value={filters.owner || "all"} onValueChange={(value) => onFiltersChange({ owner: value === "all" ? "" : value })}>
           <SelectTrigger>
             <SelectValue placeholder="Semua owner" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">Semua owner</SelectItem>
+            <SelectItem value="all">Semua owner</SelectItem>
             {owners.map(owner => (
               <SelectItem key={owner} value={owner}>
                 {owner}
@@ -88,12 +88,12 @@ const TaskToolbar: React.FC<TaskToolbarProps> = ({
           </SelectContent>
         </Select>
         
-        <Select value={filters.status} onValueChange={(value) => onFiltersChange({ status: value })}>
+        <Select value={filters.status || "all"} onValueChange={(value) => onFiltersChange({ status: value === "all" ? "" : value })}>
           <SelectTrigger>
             <SelectValue placeholder="Semua status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="">Semua status</SelectItem>
+            <SelectItem value="all">Semua status</SelectItem>
             {statuses.map(status => (
               <SelectItem key={status} value={status}>
                 {status}

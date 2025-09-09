@@ -61,15 +61,15 @@ const ProductivityDashboard: React.FC = () => {
       );
     }
 
-    if (filters.strategy) {
+    if (filters.strategy && filters.strategy !== 'all') {
       tasks = tasks.filter(task => task.strategy === filters.strategy);
     }
 
-    if (filters.owner) {
+    if (filters.owner && filters.owner !== 'all') {
       tasks = tasks.filter(task => task.owner === filters.owner);
     }
 
-    if (filters.status) {
+    if (filters.status && filters.status !== 'all') {
       tasks = tasks.filter(task => task.status === filters.status);
     }
 

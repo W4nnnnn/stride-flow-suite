@@ -167,6 +167,22 @@
     border-radius: var(--radius);
     box-shadow: var(--shadow-elegant);
   }
+
+  /* Dropdown styling fixes */
+  [data-radix-select-content] {
+    background: hsl(var(--background)) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    box-shadow: var(--shadow-elegant) !important;
+    z-index: 50 !important;
+  }
+
+  [data-radix-select-item] {
+    background: transparent !important;
+  }
+
+  [data-radix-select-item]:hover {
+    background: hsl(var(--muted)) !important;
+  }
 }
 
 @layer base {
