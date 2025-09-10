@@ -36,20 +36,22 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-50 glass-header">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-4">
-          <div className="flex flex-wrap items-center gap-3 flex-1">
-            <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
-              Extreme Productivity Management
-            </h1>
-            <Badge variant="outline" className="text-xs">
-              Berbasis prinsip Andrew Grove
-            </Badge>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground">
+                Extreme Productivity Management
+              </h1>
+              <Badge variant="outline" className="text-xs w-fit">
+                Berbasis prinsip Andrew Grove
+              </Badge>
+            </div>
             
-            <div className="flex items-center gap-2 ml-auto lg:ml-4">
+            <div className="flex flex-wrap items-center gap-2">
               <div className="flex items-center gap-2 text-sm">
-                <span className="text-muted-foreground">Siklus:</span>
+                <span className="text-muted-foreground hidden sm:inline">Siklus:</span>
                 <Select value={data.cycle} onValueChange={onCycleChange}>
-                  <SelectTrigger className="w-32">
+                  <SelectTrigger className="w-28 sm:w-32">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -66,26 +68,35 @@ const Header: React.FC<HeaderProps> = ({
                 type="month"
                 value={startMonth}
                 onChange={(e) => onStartMonthChange(e.target.value)}
-                className="w-40"
+                className="w-32 sm:w-40"
                 title="Bulan mulai untuk timeline"
               />
               
-              <Button variant="outline" size="sm" onClick={handlePrint}>
+              <Button variant="outline" size="sm" onClick={handlePrint} className="hidden sm:flex">
                 <Printer className="h-4 w-4 mr-2" />
-                Cetak
+                <span className="hidden md:inline">Cetak</span>
+              </Button>
+              
+              <Button variant="outline" size="sm" onClick={handlePrint} className="sm:hidden">
+                <Printer className="h-4 w-4" />
               </Button>
               
               <Button
                 variant="outline"
                 size="sm"
                 onClick={toggleTheme}
+                className="p-2"
               >
                 {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               </Button>
               
-              <Button variant="outline" size="sm" onClick={logout}>
+              <Button variant="outline" size="sm" onClick={logout} className="hidden sm:flex">
                 <LogOut className="h-4 w-4 mr-2" />
-                Keluar
+                <span className="hidden md:inline">Keluar</span>
+              </Button>
+              
+              <Button variant="outline" size="sm" onClick={logout} className="sm:hidden">
+                <LogOut className="h-4 w-4" />
               </Button>
             </div>
           </div>

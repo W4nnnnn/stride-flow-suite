@@ -32,21 +32,22 @@ const TaskTable: React.FC<TaskTableProps> = ({ tasks, onEditTask, onDeleteTask }
   };
 
   return (
-    <div className="overflow-auto">
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="min-w-[140px]">Strategi</TableHead>
-            <TableHead className="min-w-[300px]">Tugas/Aksi</TableHead>
-            <TableHead className="min-w-[120px]">Owner</TableHead>
-            <TableHead className="min-w-[140px]">KPI & Target</TableHead>
-            <TableHead className="min-w-[130px]">Jadwal</TableHead>
-            <TableHead className="min-w-[120px]">Status</TableHead>
-            <TableHead className="min-w-[150px]">Progress</TableHead>
-            <TableHead>Catatan</TableHead>
-            <TableHead className="min-w-[80px]">Aksi</TableHead>
-          </TableRow>
-        </TableHeader>
+    <div className="overflow-x-auto -mx-4 sm:mx-0">
+      <div className="min-w-[800px] px-4 sm:px-0">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="min-w-[140px] text-xs sm:text-sm">Strategi</TableHead>
+              <TableHead className="min-w-[300px] text-xs sm:text-sm">Tugas/Aksi</TableHead>
+              <TableHead className="min-w-[120px] text-xs sm:text-sm">Owner</TableHead>
+              <TableHead className="min-w-[140px] text-xs sm:text-sm">KPI & Target</TableHead>
+              <TableHead className="min-w-[130px] text-xs sm:text-sm">Jadwal</TableHead>
+              <TableHead className="min-w-[120px] text-xs sm:text-sm">Status</TableHead>
+              <TableHead className="min-w-[150px] text-xs sm:text-sm">Progress</TableHead>
+              <TableHead className="text-xs sm:text-sm">Catatan</TableHead>
+              <TableHead className="min-w-[100px] text-xs sm:text-sm">Aksi</TableHead>
+            </TableRow>
+          </TableHeader>
         <TableBody>
           {tasks.map((task) => (
             <TableRow key={task.id} className="hover:bg-muted/50">
@@ -88,29 +89,32 @@ const TaskTable: React.FC<TaskTableProps> = ({ tasks, onEditTask, onDeleteTask }
                 {task.notes || '-'}
               </TableCell>
               <TableCell>
-                <div className="flex gap-1">
+                <div className="flex flex-col sm:flex-row gap-1">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => onEditTask(task)}
-                    className="h-8 w-8 p-0"
+                    className="h-8 w-full sm:w-8 p-0 text-xs"
                   >
-                    <Edit className="h-3 w-3" />
+                    <Edit className="h-3 w-3 sm:mr-0 mr-1" />
+                    <span className="sm:hidden">Edit</span>
                   </Button>
                   <Button
                     variant="destructive"
                     size="sm"
                     onClick={() => onDeleteTask(task.id)}
-                    className="h-8 w-8 p-0"
+                    className="h-8 w-full sm:w-8 p-0 text-xs"
                   >
-                    <Trash2 className="h-3 w-3" />
+                    <Trash2 className="h-3 w-3 sm:mr-0 mr-1" />
+                    <span className="sm:hidden">Hapus</span>
                   </Button>
                 </div>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
-      </Table>
+        </Table>
+      </div>
     </div>
   );
 };
